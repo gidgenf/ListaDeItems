@@ -8,10 +8,16 @@ let listaVacia = [];
 const itemList = document.getElementById('contenedor');
 
 btnagregar.addEventListener('click', () => {
+
     const texto = document.getElementById('item').value;
+    if (texto) { 
     listaVacia.push(texto);
     localStorage.setItem('lista', JSON.stringify(listaVacia));
     displayItems(listaVacia);
+    document.getElementById('item').value = "";
+    } else {
+        alert("Ingrese algún texto");
+    }
 });
 
 function displayItems(lista) {
